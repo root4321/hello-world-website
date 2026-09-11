@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { recipes } from "../../data/recipes.js";
+export function getStaticPaths() { return recipes.map(recipe => ({ params: { slug: recipe.slug }, props: { recipe } })); }
+const { recipe } = Astro.props;
+const jsonLd = {
+    "@context": "https://schema.org", "@type": "Recipe", name: recipe.title, image: [`https://makemydish.org${recipe.image}`],
+    author: { "@type": "Organization", name: "Make My Dish" }, description: recipe.description,
+    prepTime: `PT${recipe.prepMinutes}M`, cookTime: `PT${recipe.cookMinutes}M`,
+    totalTime: `PT${recipe.totalMinutes}M`, recipeYield: recipe.serves, recipeCuisine: recipe.cuisine, recipeCategory: "Street food",
+    keywords: recipe.keywords, recipeIngredient: recipe.ingredients.flatMap(group => group.items),
+    recipeInstructions: recipe.steps.map(([name, text]) => ({ "@type": "HowToStep", name, text }))
+};
+---
+<BaseLayout title={`${recipe.title} Recipe | Make My Dish`} description={recipe.description}>
+    <main>
+        <article class="recipe-page">
+            <section class="hero">
+                <div class="hero-copy"><p class="eyebrow">Mumbai street food · Vegetarian</p><h1>{recipe.title.split(" ").slice(0, -recipe.shortTitle.split(" ").length).join(" ")}<br><em>{recipe.shortTitle}</em></h1><p class="intro">{recipe.description}</p><a class="primary-button" href="#recipe">Jump to recipe <span aria-hidden="true">↓</span></a></div>
+                <div class="hero-image-wrap"><img src={recipe.image} alt={recipe.title} width="1200" height="900"></div>
+            </section>
+            <section class="recipe-meta" aria-label="Recipe details"><div><strong>{recipe.serves}</strong><span>serves</span></div><div><strong>{recipe.total}</strong><span>total time</span></div><div><strong>{recipe.difficulty}</strong><span>difficulty</span></div><div><strong>{recipe.cuisine}</strong><span>cuisine</span></div></section>
+            <section class="content-grid" id="recipe">
+                <div class="recipe-content"><p class="eyebrow">The recipe</p><h2>Comforting, flavourful and made at home.</h2><p class="lead">{recipe.intro}</p>
+                    <div class="recipe-section"><h3>Ingredients</h3><div class="ingredient-columns">{recipe.ingredients.map(group => <div><h4>{group.name}</h4><ul>{group.items.map(item => <li>{item}</li>)}</ul></div>)}</div></div>
+                    <div class="recipe-section method"><h3>Method</h3><ol>{recipe.steps.map(([name, text]) => <li><strong>{name}.</strong> {text}</li>)}</ol></div>
+                </div>
+                <aside class="tips-card"><p class="eyebrow">Kitchen notes</p><h2>Make it memorable</h2><ul>{recipe.tips.map(tip => <li>{tip}</li>)}</ul><div class="serve-note"><span aria-hidden="true">☕</span><p><strong>Serve fresh</strong><br>with your favourite chai and good company.</p></div></aside>
+            </section>
+        </article>
+    </main>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>

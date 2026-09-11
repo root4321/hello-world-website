@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { recipes } from "../data/recipes.js";
+---
+<BaseLayout title="Make My Dish | Indian Recipes" description="Search original Mumbai street-food recipes including Vada Pav, Pav Bhaji, Upma, Poha, Aloo Tikki and Dahi Bade.">
+    <main>
+        <section class="recipe-finder">
+            <p class="eyebrow">Mumbai street food recipes</p>
+            <h1>What are you <em>craving?</em></h1>
+            <p>Search a recipe or choose a dish to start cooking.</p>
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="recipe-search" type="search" placeholder="Search recipes, ingredients..." autocomplete="off"></label>
+            <div class="recipe-cards" id="recipe-cards">
+                {recipes.map(recipe => <a class="recipe-card" href={`/recipes/${recipe.slug}/`} data-search={`${recipe.title} ${recipe.keywords}`}>
+                    <img src={recipe.image} alt={recipe.title} width="600" height="600" loading="lazy">
+                    <span><small>Recipe</small><strong>{recipe.title}</strong><b>View recipe →</b></span>
+                </a>)}
+            </div>
+            <p class="no-results" id="no-results" hidden>No recipes found. Try a dish name or ingredient.</p>
+        </section>
+    </main>
+    <script>
+        const input = document.querySelector("#recipe-search");
+        const cards = [...document.querySelectorAll(".recipe-card")];
+        const empty = document.querySelector("#no-results");
+        input?.addEventListener("input", () => {
+            const query = input.value.toLowerCase().trim();
+            let visible = 0;
+            cards.forEach(card => { const matches = card.dataset.search.toLowerCase().includes(query); card.hidden = !matches; if (matches) visible++; });
+            empty.hidden = visible > 0;
+        });
+    </script>
+</BaseLayout>

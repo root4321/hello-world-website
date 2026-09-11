@@ -1,0 +1,21 @@
+---
+const { title = "Make My Dish | Indian Recipes", description = "Original Indian street-food recipes made at home." } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content={description}>
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="site-header"><a class="brand" href="/">Make My Dish</a><span class="brand-tagline">Good food brings people together</span></header>
+    <slot />
+    <footer><p>Make My Dish <span>·</span> Mumbai-style comfort, made at home.</p><p><a href="/disclaimer/">Disclaimer & originality</a></p></footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "hello-world-website",
+  "version": "1.0.0",
+  "description": "Make My Dish recipe website",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/root4321/hello-world-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/root4321/hello-world-website/issues"
+  },
+  "homepage": "https://github.com/root4321/hello-world-website#readme",
+  "dependencies": {
+    "astro": "^7.3.2"
+  }
+}
