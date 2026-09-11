@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A crispy, flavour-packed Mumbai-style Vada Pav recipe with potato filling, besan batter and chutneys.">
-    <title>Mumbai-Style Vada Pav | Make My Dish</title>
+    <meta name="description" content="Make My Dish: easy Mumbai street-food recipes made at home.">
+    <title>Make My Dish | Mumbai Street Food Recipes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -12,108 +12,26 @@
 </head>
 <body>
     <header class="site-header">
-        <a class="brand" href="/">Food recipe</a>
+        <a class="brand" href="/">Make My Dish</a>
         <span class="brand-tagline">Good food brings people together</span>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-copy">
-                <p class="eyebrow">Mumbai street food · Vegetarian</p>
-                <h1>Mumbai-Style<br><em>Vada Pav</em></h1>
-                <p class="intro">A golden, crispy potato vada tucked into a soft pav with bright green chutney and spicy dry garlic chutney.</p>
-                <a class="primary-button" href="#recipe">Start cooking <span aria-hidden="true">↓</span></a>
-            </div>
-            <div class="hero-image-wrap">
-                <img src="assets/vada-pav-guide.png" alt="Mumbai-style vada pav with chutneys and step-by-step recipe guide">
-            </div>
+        <section class="recipe-finder">
+            <p class="eyebrow">Mumbai street food recipes</p>
+            <h1>What are you <em>craving?</em></h1>
+            <p>Search a recipe or choose a dish to start cooking.</p>
+            <label class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <input id="recipe-search" type="search" placeholder="Search recipes, ingredients..." autocomplete="off">
+            </label>
+            <div id="recipe-cards" class="recipe-cards" aria-live="polite"></div>
         </section>
 
-        <section class="recipe-meta" aria-label="Recipe details">
-            <div><strong>6</strong><span>vada pav</span></div>
-            <div><strong>50 min</strong><span>total time</span></div>
-            <div><strong>Easy</strong><span>difficulty</span></div>
-            <div><strong>Indian</strong><span>cuisine</span></div>
-        </section>
-
-        <section class="content-grid" id="recipe">
-            <article class="recipe-content">
-                <p class="eyebrow">The recipe</p>
-                <h2>Crispy, comforting and full of flavour.</h2>
-                <p class="lead">Mumbai's iconic snack is simple, inexpensive and wonderfully satisfying. Make the spiced potato filling, dip it in a thick besan batter, and serve it hot in toasted pav.</p>
-
-                <div class="recipe-section">
-                    <h3>Ingredients</h3>
-                    <div class="ingredient-columns">
-                        <div>
-                            <h4>Potato filling</h4>
-                            <ul>
-                                <li>4 medium potatoes, boiled and mashed</li>
-                                <li>1–2 green chillies, finely chopped</li>
-                                <li>1 tsp grated ginger</li>
-                                <li>1 tsp mustard seeds</li>
-                                <li>½ tsp cumin seeds</li>
-                                <li>8–10 curry leaves</li>
-                                <li>¼ tsp turmeric powder</li>
-                                <li>2 tbsp coriander, chopped</li>
-                                <li>1 tbsp lemon juice</li>
-                                <li>Salt and 1 tbsp oil</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Besan batter</h4>
-                            <ul>
-                                <li>1½ cups gram flour (besan)</li>
-                                <li>¼ tsp turmeric powder</li>
-                                <li>¼ tsp red chilli powder</li>
-                                <li>A pinch of baking soda</li>
-                                <li>Salt to taste</li>
-                                <li>Approx. ¾ cup water</li>
-                                <li>Oil, for deep frying</li>
-                            </ul>
-                            <h4>To serve</h4>
-                            <ul>
-                                <li>6 soft pav buns</li>
-                                <li>Green chutney and dry garlic chutney</li>
-                                <li>Fried green chillies, optional</li>
-                                <li>Butter or oil for toasting</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="recipe-section method">
-                    <h3>Method</h3>
-                    <ol>
-                        <li><strong>Make the filling.</strong> Heat oil, crackle mustard seeds, then add cumin, curry leaves, ginger and chilli. Stir in turmeric, mashed potatoes and salt. Cook for 2–3 minutes, then finish with coriander and lemon juice. Cool completely.</li>
-                        <li><strong>Shape the vadas.</strong> Divide the potato mixture into six portions and roll each into a smooth ball.</li>
-                        <li><strong>Mix the batter.</strong> Whisk besan, turmeric, chilli powder, salt and baking soda. Gradually add water until smooth and thick. Rest for 5–10 minutes.</li>
-                        <li><strong>Fry until golden.</strong> Heat oil over medium heat. Dip each ball in batter, coat well and fry a few at a time until crisp and golden. Drain on paper.</li>
-                        <li><strong>Toast and assemble.</strong> Slice the pav, toast with butter or oil, spread both chutneys and place a hot vada inside. Add extra garlic chutney and serve immediately.</li>
-                    </ol>
-                </div>
-            </article>
-
-            <aside class="tips-card">
-                <p class="eyebrow">Kitchen notes</p>
-                <h2>Make it memorable</h2>
-                <ul>
-                    <li>Keep the potato mixture relatively dry so the vadas hold their shape.</li>
-                    <li>A thick batter creates the crispiest coating.</li>
-                    <li>Maintain medium heat so the inside warms before the outside browns.</li>
-                    <li>Don't skip the dry garlic chutney — it is the signature flavour.</li>
-                </ul>
-                <div class="serve-note">
-                    <span aria-hidden="true">☕</span>
-                    <p><strong>Serve hot</strong><br>with chutney, fried chillies and masala chai.</p>
-                </div>
-            </aside>
-        </section>
+        <section id="recipe-detail" aria-live="polite"></section>
     </main>
 
-    <footer>
-        <p>Make My Dish <span>·</span> Mumbai-style comfort, made at home.</p>
-    </footer>
+    <footer><p>Make My Dish <span>·</span> Mumbai-style comfort, made at home.</p></footer>
     <script src="script.js"></script>
 </body>
 </html>
